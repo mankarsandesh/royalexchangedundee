@@ -1,387 +1,1227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Royal Exchange Business Hub — Offices, coworking and meeting rooms in Dundee</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --tay:#1E3B45;      /* deep estuary slate */
-    --tay-2:#2C5260;
-    --stone:#E9ECE7;    /* cool sandstone-grey ground */
-    --sand:#C8B28A;     /* Dundee sandstone */
-    --brass:#9C7A35;    /* door-plate brass */
-    --ink:#1A2428;
-    --paper:#F7F8F5;
-    --line:rgba(30,59,69,.18);
-    --arch: polygon(0 100%,0 38%,4% 25%,12% 13%,24% 5%,38% 1%,50% 0,62% 1%,76% 5%,88% 13%,96% 25%,100% 38%,100% 100%);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-  body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--stone);font-size:1.0625rem;line-height:1.65;font-weight:400}
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:2px}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      The Royal Exchange Business Hub — Offices, coworking and meeting rooms in
+      Dundee
+    </title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/royal-exchange-lion-icon.png"
+    />
+    <link rel="apple-touch-icon" href="images/royal-exchange-lion-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --tay: #1e3b45; /* deep estuary slate */
+        --tay-2: #2c5260;
+        --stone: #e9ece7; /* cool sandstone-grey ground */
+        --sand: #c8b28a; /* Dundee sandstone */
+        --brass: #9c7a35; /* door-plate brass */
+        --ink: #1a2428;
+        --paper: #f7f8f5;
+        --line: rgba(30, 59, 69, 0.18);
+        --arch: polygon(
+          0 100%,
+          0 38%,
+          4% 25%,
+          12% 13%,
+          24% 5%,
+          38% 1%,
+          50% 0,
+          62% 1%,
+          76% 5%,
+          88% 13%,
+          96% 25%,
+          100% 38%,
+          100% 100%
+        );
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+      body {
+        font-family: "Poppins", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--stone);
+        font-size: 1.0625rem;
+        line-height: 1.65;
+        font-weight: 400;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--brass);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
 
-  /* offer bar */
-  .offer{background:var(--brass);color:#fff;text-align:center;font-size:.9rem;padding:9px 16px;font-weight:500}
-  .offer a{font-weight:600}
+      /* offer bar */
+      .offer {
+        background: var(--brass);
+        color: #fff;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 9px 16px;
+        font-weight: 500;
+      }
+      .offer a {
+        font-weight: 600;
+      }
 
-  /* header */
-  header{position:sticky;top:0;z-index:20;background:rgba(233,236,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .brand svg{width:34px;height:40px}
-  .brand b{display:block;font-weight:600;font-size:1.02rem;line-height:1.1;color:var(--tay)}
-  .brand small{display:block;font-size:.78rem;color:var(--tay-2);font-weight:400}
-  nav ul{display:flex;gap:30px;list-style:none;align-items:center}
-  nav a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--tay)}
-  nav a:hover{color:var(--brass)}
-  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:999px;border:2px solid var(--tay);background:var(--tay);color:#fff;cursor:pointer;font-family:inherit}
-  .btn:hover{background:var(--tay-2);border-color:var(--tay-2)}
-  .btn.ghost{background:transparent;color:var(--tay)}
-  .btn.ghost:hover{background:var(--tay);color:#fff}
-  .menu-toggle{display:none;background:none;border:0;font:inherit;font-weight:600;color:var(--tay);cursor:pointer}
+      /* header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(233, 236, 231, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 84px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .brand img {
+        display: block;
+        height: 62px;
+        width: auto;
+      }
+      .foot-logo {
+        display: block;
+        height: 84px;
+        width: auto;
+      }
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        align-items: center;
+      }
+      nav a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--tay);
+      }
+      nav a:hover {
+        color: var(--brass);
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 13px 24px;
+        border-radius: 999px;
+        border: 2px solid var(--tay);
+        background: var(--tay);
+        color: #fff;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .btn:hover {
+        background: var(--tay-2);
+        border-color: var(--tay-2);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--tay);
+      }
+      .btn.ghost:hover {
+        background: var(--tay);
+        color: #fff;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: 0;
+        font: inherit;
+        font-weight: 600;
+        color: var(--tay);
+        cursor: pointer;
+      }
 
-  /* hero */
-  .hero{padding:72px 0 0;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.04;font-weight:600;letter-spacing:-.025em;color:var(--tay)}
-  .hero p.lead{font-size:1.18rem;max-width:34em;margin:26px 0 34px;color:#33454b;font-weight:300}
-  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
-  .addr{display:flex;gap:28px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--tay-2);margin-bottom:64px}
-  .addr strong{display:block;color:var(--tay);font-weight:600}
-  .facade{position:relative;align-self:stretch;display:flex;align-items:flex-end}
-  .facade svg{width:100%;height:auto;display:block}
-  .facade .draw path,.facade .draw line,.facade .draw rect,.facade .draw circle{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s cubic-bezier(.6,.1,.2,1) forwards}
-  @keyframes draw{to{stroke-dashoffset:0}}
+      /* hero */
+      .hero {
+        padding: 72px 0 0;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+        line-height: 1.04;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--tay);
+      }
+      .hero p.lead {
+        font-size: 1.18rem;
+        max-width: 34em;
+        margin: 26px 0 34px;
+        color: #33454b;
+        font-weight: 300;
+      }
+      .hero .ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+      }
+      .addr {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        padding: 22px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.92rem;
+        color: var(--tay-2);
+        margin-bottom: 64px;
+      }
+      .addr strong {
+        display: block;
+        color: var(--tay);
+        font-weight: 600;
+      }
+      .facade {
+        position: relative;
+        align-self: stretch;
+        display: flex;
+        align-items: flex-end;
+      }
+      .facade svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .facade .draw path,
+      .facade .draw line,
+      .facade .draw rect,
+      .facade .draw circle {
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation: draw 2.4s cubic-bezier(0.6, 0.1, 0.2, 1) forwards;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
 
-  /* photos */
-  .photo{background:var(--tay-2);display:block;width:100%;object-fit:cover}
-  .hero-photo{position:relative;z-index:0;width:100%;max-width:460px;margin-left:auto}
-  .hero-photo img{aspect-ratio:4/5;clip-path:var(--arch);object-position:62% center}
-  .hero-photo::before{content:"";position:absolute;inset:-12px 12px 12px -12px;background:var(--sand);clip-path:var(--arch);z-index:-1}
-  .band{padding:0}
-  .band img{height:min(62vh,560px);object-position:center 60%}
-  .gallery{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:16px;margin-top:64px}
-  .gallery img{height:100%;min-height:220px;border-radius:14px}
-  .gallery img:first-child{grid-row:1/3;min-height:460px}
-  .arch .arch-img{aspect-ratio:4/3;margin:-96px -34px 30px;width:calc(100% + 68px)}
-  .arch h3{margin-top:0}
+      /* photos */
+      .photo {
+        background: var(--tay-2);
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+      .hero-photo {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        max-width: 460px;
+        margin-left: auto;
+      }
+      .hero-photo img {
+        aspect-ratio: 4/5;
+        clip-path: var(--arch);
+        object-position: 62% center;
+      }
+      .hero-photo::before {
+        content: "";
+        position: absolute;
+        inset: -12px 12px 12px -12px;
+        background: var(--sand);
+        clip-path: var(--arch);
+        z-index: -1;
+      }
+      .band {
+        padding: 0;
+      }
+      .band img {
+        height: min(62vh, 560px);
+        object-position: center 60%;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+        margin-top: 64px;
+      }
+      .gallery img {
+        height: 100%;
+        min-height: 220px;
+        border-radius: 14px;
+      }
+      .gallery img:first-child {
+        grid-row: 1/3;
+        min-height: 460px;
+      }
+      .arch .arch-img {
+        aspect-ratio: 4/3;
+        margin: -96px -34px 30px;
+        width: calc(100% + 68px);
+      }
+      .arch h3 {
+        margin-top: 0;
+      }
 
-  .inside h2{color:var(--tay)}
-  .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-color:var(--sand) transparent}
-  .strip figure{scroll-snap-align:start}
-  .strip img{aspect-ratio:4/3;border-radius:14px}
-  .strip figcaption{font-size:.92rem;font-weight:500;color:var(--tay);margin-top:12px}
-  .rooms-photo{margin-top:32px;border-radius:14px;aspect-ratio:4/3}
-  .find-us{border-radius:14px;aspect-ratio:4/3;margin-bottom:30px}
+      .inside h2 {
+        color: var(--tay);
+      }
+      .strip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(300px, 1fr);
+        gap: 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 14px;
+        scrollbar-color: var(--sand) transparent;
+      }
+      .strip figure {
+        scroll-snap-align: start;
+      }
+      .strip img {
+        aspect-ratio: 4/3;
+        border-radius: 14px;
+      }
+      .strip figcaption {
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--tay);
+        margin-top: 12px;
+      }
+      .rooms-photo {
+        margin-top: 32px;
+        border-radius: 14px;
+        aspect-ratio: 4/3;
+      }
+      .find-us {
+        border-radius: 14px;
+        aspect-ratio: 4/3;
+        margin-bottom: 30px;
+      }
 
-  /* spaces */
-  section{padding:110px 0}
-  .tay{background:var(--tay);color:#E7EEEC}
-  .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:60px}
-  h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.1;font-weight:600;letter-spacing:-.02em}
-  .tay h2{color:#fff}
-  .sec-head p{max-width:36em;font-weight:300}
-  .tay .sec-head p{color:#C7D6D4}
+      /* spaces */
+      section {
+        padding: 110px 0;
+      }
+      .tay {
+        background: var(--tay);
+        color: #e7eeec;
+      }
+      .sec-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: end;
+        margin-bottom: 60px;
+      }
+      h2 {
+        font-size: clamp(2rem, 3.6vw, 3rem);
+        line-height: 1.1;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .tay h2 {
+        color: #fff;
+      }
+      .sec-head p {
+        max-width: 36em;
+        font-weight: 300;
+      }
+      .tay .sec-head p {
+        color: #c7d6d4;
+      }
 
-  .arches{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .arch{background:var(--tay-2);clip-path:var(--arch);padding:96px 34px 38px;display:flex;flex-direction:column;min-height:520px;color:#E7EEEC;text-decoration:none;transition:background .25s}
-  .arch:hover{background:#346170}
-  .arch.featured{background:var(--sand);color:var(--ink)}
-  .arch.featured:hover{background:#D3BF99}
-  .arch .icon{width:56px;height:56px;margin:0 auto 28px}
-  .arch h3{font-size:1.6rem;font-weight:600;text-align:center;margin-bottom:14px;color:inherit}
-  .arch p{font-size:.98rem;font-weight:300;text-align:center}
-  .arch .fact{margin-top:auto;padding-top:26px;border-top:1px solid rgba(255,255,255,.22);text-align:center}
-  .arch.featured .fact{border-color:rgba(26,36,40,.2)}
-  .fact big{display:block;font-size:2rem;font-weight:600;line-height:1.1}
-  .fact span{font-size:.88rem;opacity:.85}
+      .arches {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .arch {
+        background: var(--tay-2);
+        clip-path: var(--arch);
+        padding: 96px 34px 38px;
+        display: flex;
+        flex-direction: column;
+        min-height: 520px;
+        color: #e7eeec;
+        text-decoration: none;
+        transition: background 0.25s;
+      }
+      .arch:hover {
+        background: #346170;
+      }
+      .arch.featured {
+        background: var(--sand);
+        color: var(--ink);
+      }
+      .arch.featured:hover {
+        background: #d3bf99;
+      }
+      .arch .icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 28px;
+      }
+      .arch h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 14px;
+        color: inherit;
+      }
+      .arch p {
+        font-size: 0.98rem;
+        font-weight: 300;
+        text-align: center;
+      }
+      .arch .fact {
+        margin-top: auto;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+        text-align: center;
+      }
+      .arch.featured .fact {
+        border-color: rgba(26, 36, 40, 0.2);
+      }
+      .fact big {
+        display: block;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+      .fact span {
+        font-size: 0.88rem;
+        opacity: 0.85;
+      }
 
-  /* included */
-  .included{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
-  .included h2{color:var(--tay)}
-  .included > div > p{margin-top:20px;font-weight:300;max-width:30em}
-  .list{list-style:none;columns:2;column-gap:40px}
-  .list li{break-inside:avoid;padding:18px 0 18px 34px;border-bottom:1px solid var(--line);position:relative;font-weight:500;color:var(--tay)}
-  .list li span{display:block;font-weight:300;font-size:.92rem;color:#4A5B60}
-  .list li::before{content:"";position:absolute;left:0;top:24px;width:16px;height:20px;background:var(--brass);clip-path:var(--arch)}
+      /* included */
+      .included {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 72px;
+        align-items: start;
+      }
+      .included h2 {
+        color: var(--tay);
+      }
+      .included > div > p {
+        margin-top: 20px;
+        font-weight: 300;
+        max-width: 30em;
+      }
+      .list {
+        list-style: none;
+        columns: 2;
+        column-gap: 40px;
+      }
+      .list li {
+        break-inside: avoid;
+        padding: 18px 0 18px 34px;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+        font-weight: 500;
+        color: var(--tay);
+      }
+      .list li span {
+        display: block;
+        font-weight: 300;
+        font-size: 0.92rem;
+        color: #4a5b60;
+      }
+      .list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 24px;
+        width: 16px;
+        height: 20px;
+        background: var(--brass);
+        clip-path: var(--arch);
+      }
 
-  /* meeting rooms picker */
-  .rooms{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .rooms h2{color:var(--tay)}
-  .rooms > div > p{margin:18px 0 0;font-weight:300;max-width:32em}
-  .picker{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:36px}
-  .picker label{font-weight:600;color:var(--tay);display:block;margin-bottom:6px}
-  .picker output{font-size:3.4rem;font-weight:600;color:var(--tay);line-height:1;display:block;margin:6px 0 4px}
-  .picker .unit{color:#4A5B60;font-size:.95rem}
-  input[type=range]{width:100%;margin:26px 0 10px;accent-color:var(--brass);height:28px}
-  .scale{display:flex;justify-content:space-between;font-size:.8rem;color:#4A5B60}
-  .seats{display:flex;flex-wrap:wrap;gap:7px;margin:26px 0;min-height:44px}
-  .seat{width:16px;height:20px;background:var(--tay);clip-path:var(--arch);opacity:.18;transition:opacity .2s}
-  .seat.on{opacity:1}
-  .room-name{font-weight:500;color:var(--tay);margin-bottom:22px}
+      /* meeting rooms picker */
+      .rooms {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .rooms h2 {
+        color: var(--tay);
+      }
+      .rooms > div > p {
+        margin: 18px 0 0;
+        font-weight: 300;
+        max-width: 32em;
+      }
+      .picker {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 36px;
+      }
+      .picker label {
+        font-weight: 600;
+        color: var(--tay);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .picker output {
+        font-size: 3.4rem;
+        font-weight: 600;
+        color: var(--tay);
+        line-height: 1;
+        display: block;
+        margin: 6px 0 4px;
+      }
+      .picker .unit {
+        color: #4a5b60;
+        font-size: 0.95rem;
+      }
+      input[type="range"] {
+        width: 100%;
+        margin: 26px 0 10px;
+        accent-color: var(--brass);
+        height: 28px;
+      }
+      .scale {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: #4a5b60;
+      }
+      .seats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 26px 0;
+        min-height: 44px;
+      }
+      .seat {
+        width: 16px;
+        height: 20px;
+        background: var(--tay);
+        clip-path: var(--arch);
+        opacity: 0.18;
+        transition: opacity 0.2s;
+      }
+      .seat.on {
+        opacity: 1;
+      }
+      .room-name {
+        font-weight: 500;
+        color: var(--tay);
+        margin-bottom: 22px;
+      }
 
-  /* tenants */
-  .tenants{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-  .tenants li{list-style:none;border:1px solid rgba(231,238,236,.35);border-radius:999px;padding:10px 20px;font-size:.95rem}
-  .quote-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-  .quote-wrap p.big{font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:300;line-height:1.4;color:#fff}
+      /* tenants */
+      .tenants {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .tenants li {
+        list-style: none;
+        border: 1px solid rgba(231, 238, 236, 0.35);
+        border-radius: 999px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+      .quote-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .quote-wrap p.big {
+        font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+        font-weight: 300;
+        line-height: 1.4;
+        color: #fff;
+      }
 
-  /* contact */
-  .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px}
-  .contact h2{color:var(--tay)}
-  .contact .info p{font-weight:300;margin:18px 0 30px;max-width:28em}
-  .contact dl{display:grid;gap:18px}
-  .contact dt{font-size:.85rem;color:#4A5B60}
-  .contact dd{font-weight:600;color:var(--tay);font-size:1.05rem}
-  form{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:40px;display:grid;gap:20px;grid-template-columns:1fr 1fr}
-  form .full{grid-column:1/-1}
-  form label{display:block;font-weight:500;font-size:.92rem;color:var(--tay);margin-bottom:7px}
-  input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:13px 15px;border:1px solid #B9C4C1;border-radius:10px;background:#fff;color:var(--ink)}
-  textarea{min-height:130px;resize:vertical}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
-  .sent{grid-column:1/-1;background:#DDE8E3;color:var(--tay);padding:14px 18px;border-radius:10px;font-weight:500;display:none}
-  .sent.show{display:block}
+      /* contact */
+      .contact {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 72px;
+      }
+      .contact h2 {
+        color: var(--tay);
+      }
+      .contact .info p {
+        font-weight: 300;
+        margin: 18px 0 30px;
+        max-width: 28em;
+      }
+      .contact dl {
+        display: grid;
+        gap: 18px;
+      }
+      .contact dt {
+        font-size: 0.85rem;
+        color: #4a5b60;
+      }
+      .contact dd {
+        font-weight: 600;
+        color: var(--tay);
+        font-size: 1.05rem;
+      }
+      form {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 40px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+      form .full {
+        grid-column: 1/-1;
+      }
+      form label {
+        display: block;
+        font-weight: 500;
+        font-size: 0.92rem;
+        color: var(--tay);
+        margin-bottom: 7px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        font: inherit;
+        font-size: 1rem;
+        padding: 13px 15px;
+        border: 1px solid #b9c4c1;
+        border-radius: 10px;
+        background: #fff;
+        color: var(--ink);
+      }
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 2px solid var(--brass);
+        outline-offset: 1px;
+        border-color: var(--brass);
+      }
+      .sent {
+        grid-column: 1/-1;
+        background: #dde8e3;
+        color: var(--tay);
+        padding: 14px 18px;
+        border-radius: 10px;
+        font-weight: 500;
+        display: none;
+      }
+      .sent.show {
+        display: block;
+      }
 
-  footer{background:var(--ink);color:#B7C3C2;padding:56px 0 40px;font-size:.92rem}
-  .foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
-  footer a{text-decoration:none;color:#E7EEEC}
-  footer a:hover{color:var(--sand)}
-  .foot ul{list-style:none;display:grid;gap:8px}
-  .fine{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem}
+      footer {
+        background: var(--ink);
+        color: #b7c3c2;
+        padding: 56px 0 40px;
+        font-size: 0.92rem;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      footer a {
+        text-decoration: none;
+        color: #e7eeec;
+      }
+      footer a:hover {
+        color: var(--sand);
+      }
+      .foot ul {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+      .fine {
+        margin-top: 44px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.82rem;
+      }
 
-  @media (max-width:960px){
-    .hero-grid,.sec-head,.included,.rooms,.quote-wrap,.contact{grid-template-columns:1fr;gap:40px}
-    .hero-photo{max-width:420px;margin:0 auto 48px}
-    .gallery{grid-template-columns:1fr;grid-template-rows:auto}
-    .gallery img:first-child{grid-row:auto;min-height:280px}
-    .arches{grid-template-columns:1fr;max-width:440px;margin:0 auto}
-    .arch{min-height:auto}
-    section{padding:80px 0}
-  }
-  @media (max-width:760px){
-    nav ul{display:none;position:absolute;top:74px;left:0;right:0;background:var(--stone);flex-direction:column;padding:20px 28px 28px;gap:18px;border-bottom:1px solid var(--line);align-items:flex-start}
-    nav ul.open{display:flex}
-    .menu-toggle{display:block}
-    .list{columns:1}
-    form{grid-template-columns:1fr;padding:26px}
-    .addr{gap:18px}
-  }
-</style>
-</head>
-<body>
+      @media (max-width: 960px) {
+        .hero-grid,
+        .sec-head,
+        .included,
+        .rooms,
+        .quote-wrap,
+        .contact {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-photo {
+          max-width: 420px;
+          margin: 0 auto 48px;
+        }
+        .gallery {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+        .gallery img:first-child {
+          grid-row: auto;
+          min-height: 280px;
+        }
+        .arches {
+          grid-template-columns: 1fr;
+          max-width: 440px;
+          margin: 0 auto;
+        }
+        .arch {
+          min-height: auto;
+        }
+        section {
+          padding: 80px 0;
+        }
+      }
+      @media (max-width: 760px) {
+        nav ul {
+          display: none;
+          position: absolute;
+          top: 84px;
+          left: 0;
+          right: 0;
+          background: var(--stone);
+          flex-direction: column;
+          padding: 20px 28px 28px;
+          gap: 18px;
+          border-bottom: 1px solid var(--line);
+          align-items: flex-start;
+        }
+        nav ul.open {
+          display: flex;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .list {
+          columns: 1;
+        }
+        form {
+          grid-template-columns: 1fr;
+          padding: 26px;
+        }
+        .addr {
+          gap: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="offer">
+      20% off in our November sale — <a href="#contact">book a tour</a> to see
+      what's available.
+    </div>
 
-<div class="offer">20% off in our November sale — <a href="#contact">book a tour</a> to see what's available.</div>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="The Royal Exchange, home">
+          <img
+            src="images/royal-exchange-logo-trimmed.png"
+            alt="The Royal Exchange Business Hub"
+            width="519"
+            height="223"
+          />
+        </a>
+        <nav aria-label="Main">
+          <button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            Menu
+          </button>
+          <ul id="menu">
+            <li><a href="#spaces">Offices</a></li>
+            <li><a href="#spaces">Coworking</a></li>
+            <li><a href="#rooms">Meeting rooms</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a class="btn" href="#contact">Book a tour</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="The Royal Exchange, home">
-      <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M2 40V17C2 8 9 2 17 2s15 6 15 15v23" fill="none" stroke="#1E3B45" stroke-width="3"/><path d="M10 40V20c0-4 3-7 7-7s7 3 7 7v20" fill="#9C7A35"/></svg>
-      <span><b>The Royal Exchange</b><small>Business Hub · Dundee</small></span>
-    </a>
-    <nav aria-label="Main">
-      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-      <ul id="menu">
-        <li><a href="#spaces">Offices</a></li>
-        <li><a href="#spaces">Coworking</a></li>
-        <li><a href="#rooms">Meeting rooms</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a class="btn" href="#contact">Book a tour</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <main id="top">
+      <section class="hero" style="padding-bottom: 0">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>The right address for every stage of your business.</h1>
+            <p class="lead">
+              Serviced offices, coworking desks, a business lounge and meeting
+              rooms inside Dundee's Royal Exchange Building. Flexible licences
+              instead of long leases, and one all-inclusive rent.
+            </p>
+            <div class="ctas">
+              <a class="btn" href="#contact">Book a tour</a>
+              <a class="btn ghost" href="#rooms">Book a meeting room</a>
+            </div>
+            <div class="addr" style="margin-bottom: 0">
+              <div><strong>Panmure Street</strong>Dundee DD1 1DU</div>
+              <div><strong>01382 722342</strong>Call the hub</div>
+              <div><strong>100–3,500 sq ft</strong>Office sizes</div>
+            </div>
+          </div>
 
-<main id="top">
-  <section class="hero" style="padding-bottom:0">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>The right address for every stage of your business.</h1>
-        <p class="lead">Serviced offices, coworking desks, a business lounge and meeting rooms inside Dundee's Royal Exchange Building. Flexible licences instead of long leases, and one all-inclusive rent.</p>
-        <div class="ctas">
-          <a class="btn" href="#contact">Book a tour</a>
-          <a class="btn ghost" href="#rooms">Book a meeting room</a>
+          <div class="hero-photo">
+            <img
+              class="photo"
+              src="images/open-plan-2.jpg"
+              alt="Open-plan office space with rows of desks and views over Dundee"
+              width="1000"
+              height="1250"
+            />
+          </div>
         </div>
-        <div class="addr" style="margin-bottom:0">
-          <div><strong>Panmure Street</strong>Dundee DD1 1DU</div>
-          <div><strong>01382 722342</strong>Call the hub</div>
-          <div><strong>100–3,500 sq ft</strong>Office sizes</div>
+      </section>
+
+      <section class="band" style="padding-top: 72px">
+        <img
+          class="photo"
+          src="images/exterior-wide.jpg"
+          alt="The Royal Exchange Building on Panmure Street, Dundee"
+          loading="lazy"
+        />
+      </section>
+
+      <section id="spaces" class="tay">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Three ways to work under one roof.</h2>
+            <p>
+              Take a private office for your team, a desk among other
+              businesses, or a room for the afternoon. Whichever you pick, you
+              share the same lounge, kitchen and front door.
+            </p>
+          </div>
+          <div class="arches">
+            <a class="arch" href="#contact">
+              <img
+                class="photo arch-img"
+                src="images/team-office.jpg"
+                alt="A furnished team office with four desks"
+                loading="lazy"
+              />
+              <h3>Serviced offices</h3>
+              <p>
+                Private offices for startups, growing SMEs and larger firms.
+                Furnished, connected and ready to move into, on a flexible
+                licence.
+              </p>
+              <div class="fact">
+                <big>100–3,500</big><span>square feet</span>
+              </div>
+            </a>
+            <a class="arch featured" href="#contact">
+              <img
+                class="photo arch-img"
+                src="images/open-plan.jpg"
+                alt="The shared office with coworking desks"
+                loading="lazy"
+              />
+              <h3>Coworking</h3>
+              <p>
+                A desk in the shared office or a seat in the business lounge.
+                Good for working alongside other people and meeting the
+                businesses in the building.
+              </p>
+              <div class="fact">
+                <big>Shared desks</big><span>plus the business lounge</span>
+              </div>
+            </a>
+            <a class="arch" href="#rooms">
+              <img
+                class="photo arch-img"
+                src="images/meeting-room-green.jpg"
+                alt="A meeting room with a table for ten"
+                loading="lazy"
+              />
+              <h3>Meeting rooms</h3>
+              <p>
+                Bookable rooms for interviews, client meetings and workshops.
+                Every room has a large-screen TV, with tea and coffee included.
+              </p>
+              <div class="fact">
+                <big>4–24</big><span>people per room</span>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-photo">
-        <img class="photo" src="images/open-plan-2.jpg" alt="Open-plan office space with rows of desks and views over Dundee" width="1000" height="1250">
-      </div>
-    </div>
-  </section>
+      <section>
+        <div class="wrap included">
+          <div>
+            <h2>One rent. Everything included.</h2>
+            <p>
+              No service charges added later and no surprise bills. Your monthly
+              rent covers the office and everything around it.
+            </p>
+          </div>
+          <ul class="list">
+            <li>Meeting rooms<span>Bookable for members</span></li>
+            <li>Business lounge<span>For breakout work and visitors</span></li>
+            <li>
+              Virtual office services<span
+                >A Dundee address for your business</span
+              >
+            </li>
+            <li>Day offices<span>A private room when you need one</span></li>
+            <li>Shared kitchen<span>With free tea and coffee</span></li>
+            <li>Printing and scanning<span>On site</span></li>
+          </ul>
+        </div>
+      </section>
 
-  <section class="band" style="padding-top:72px">
-    <img class="photo" src="images/exterior-wide.jpg" alt="The Royal Exchange Building on Panmure Street, Dundee" loading="lazy">
-  </section>
+      <section class="inside" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sec-head" style="margin-bottom: 40px">
+            <h2>Take a look inside.</h2>
+            <p>
+              Reception, offices, kitchen and lounges, all on Panmure Street.
+              Scroll along to see more, or book a tour to see them for yourself.
+            </p>
+          </div>
+          <div class="strip" tabindex="0" aria-label="Photos of the building">
+            <figure>
+              <img
+                class="photo"
+                src="images/reception.jpg"
+                alt="Reception with a green marble wall and sofas"
+                loading="lazy"
+              />
+              <figcaption>Reception</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="photo"
+                src="images/office-for-two.jpg"
+                alt="A private office with two desks"
+                loading="lazy"
+              />
+              <figcaption>Office for two</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="photo"
+                src="images/office-with-sofa.jpg"
+                alt="An office with desks and a sofa"
+                loading="lazy"
+              />
+              <figcaption>Office with a seating area</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="photo"
+                src="images/office-blue.jpg"
+                alt="An office with a blue feature wall"
+                loading="lazy"
+              />
+              <figcaption>Office for three</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="photo"
+                src="images/kitchen.jpg"
+                alt="The shared kitchen"
+                loading="lazy"
+              />
+              <figcaption>Shared kitchen</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="photo"
+                src="images/open-plan.jpg"
+                alt="A large open-plan floor with desks"
+                loading="lazy"
+              />
+              <figcaption>Open-plan floor</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
 
-  <section id="spaces" class="tay">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Three ways to work under one roof.</h2>
-        <p>Take a private office for your team, a desk among other businesses, or a room for the afternoon. Whichever you pick, you share the same lounge, kitchen and front door.</p>
-      </div>
-      <div class="arches">
-        <a class="arch" href="#contact">
-          <img class="photo arch-img" src="images/team-office.jpg" alt="A furnished team office with four desks" loading="lazy">
-          <h3>Serviced offices</h3>
-          <p>Private offices for startups, growing SMEs and larger firms. Furnished, connected and ready to move into, on a flexible licence.</p>
-          <div class="fact"><big>100–3,500</big><span>square feet</span></div>
-        </a>
-        <a class="arch featured" href="#contact">
-          <img class="photo arch-img" src="images/open-plan.jpg" alt="The shared office with coworking desks" loading="lazy">
-          <h3>Coworking</h3>
-          <p>A desk in the shared office or a seat in the business lounge. Good for working alongside other people and meeting the businesses in the building.</p>
-          <div class="fact"><big>Shared desks</big><span>plus the business lounge</span></div>
-        </a>
-        <a class="arch" href="#rooms">
-          <img class="photo arch-img" src="images/meeting-room-green.jpg" alt="A meeting room with a table for ten" loading="lazy">
-          <h3>Meeting rooms</h3>
-          <p>Bookable rooms for interviews, client meetings and workshops. Every room has a large-screen TV, with tea and coffee included.</p>
-          <div class="fact"><big>4–24</big><span>people per room</span></div>
-        </a>
-      </div>
-    </div>
-  </section>
+      <section id="rooms" style="padding-top: 0">
+        <div class="wrap rooms">
+          <div>
+            <h2>Find a room that fits.</h2>
+            <p>
+              Tell us how many people are coming and we'll suggest a room. Tea,
+              coffee and a large-screen TV come with every booking.
+            </p>
+            <img
+              class="photo rooms-photo"
+              src="images/meeting-room-library.jpg"
+              alt="A meeting room with a bookcase and a large-screen TV"
+              loading="lazy"
+            />
+          </div>
+          <div class="picker">
+            <label for="guests">How many people?</label>
+            <output id="count" for="guests">8</output>
+            <span class="unit">people</span>
+            <input type="range" id="guests" min="1" max="24" value="8" />
+            <div class="scale"><span>1</span><span>24</span></div>
+            <div class="seats" id="seats" aria-hidden="true"></div>
+            <p class="room-name" id="roomName" aria-live="polite"></p>
+            <a class="btn" href="#contact" id="bookRoom">Book a meeting room</a>
+          </div>
+        </div>
+      </section>
 
-  <section>
-    <div class="wrap included">
-      <div>
-        <h2>One rent. Everything included.</h2>
-        <p>No service charges added later and no surprise bills. Your monthly rent covers the office and everything around it.</p>
-      </div>
-      <ul class="list">
-        <li>Meeting rooms<span>Bookable for members</span></li>
-        <li>Business lounge<span>For breakout work and visitors</span></li>
-        <li>Virtual office services<span>A Dundee address for your business</span></li>
-        <li>Day offices<span>A private room when you need one</span></li>
-        <li>Shared kitchen<span>With free tea and coffee</span></li>
-        <li>Printing and scanning<span>On site</span></li>
-      </ul>
-    </div>
-  </section>
+      <section id="community" class="tay">
+        <div class="wrap quote-wrap">
+          <div>
+            <h2 style="margin-bottom: 24px">Who works here.</h2>
+            <p class="big">
+              Solicitors next to software consultants, accountants down the hall
+              from energy companies. The lounge and kitchen are where these
+              neighbours meet.
+            </p>
+          </div>
+          <ul class="tenants">
+            <li>Solicitors</li>
+            <li>Accountants</li>
+            <li>IT consultants</li>
+            <li>Therapists</li>
+            <li>Energy sector</li>
+            <li>Startups</li>
+            <li>Growing SMEs</li>
+            <li>Corporate teams</li>
+          </ul>
+        </div>
+        <div class="wrap">
+          <div class="gallery">
+            <img
+              class="photo"
+              src="images/breakout.jpg"
+              alt="Members chatting in the breakout area"
+              loading="lazy"
+            />
+            <img
+              class="photo"
+              src="images/business-lounge.jpg"
+              alt="The business lounge with booth seating"
+              loading="lazy"
+            />
+            <img
+              class="photo"
+              src="images/lounge-room.jpg"
+              alt="A lounge room with sofas and a wall-mounted TV"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
 
-  <section class="inside" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head" style="margin-bottom:40px">
-        <h2>Take a look inside.</h2>
-        <p>Reception, offices, kitchen and lounges, all on Panmure Street. Scroll along to see more, or book a tour to see them for yourself.</p>
-      </div>
-      <div class="strip" tabindex="0" aria-label="Photos of the building">
-        <figure><img class="photo" src="images/reception.jpg" alt="Reception with a green marble wall and sofas" loading="lazy"><figcaption>Reception</figcaption></figure>
-        <figure><img class="photo" src="images/office-for-two.jpg" alt="A private office with two desks" loading="lazy"><figcaption>Office for two</figcaption></figure>
-        <figure><img class="photo" src="images/office-with-sofa.jpg" alt="An office with desks and a sofa" loading="lazy"><figcaption>Office with a seating area</figcaption></figure>
-        <figure><img class="photo" src="images/office-blue.jpg" alt="An office with a blue feature wall" loading="lazy"><figcaption>Office for three</figcaption></figure>
-        <figure><img class="photo" src="images/kitchen.jpg" alt="The shared kitchen" loading="lazy"><figcaption>Shared kitchen</figcaption></figure>
-        <figure><img class="photo" src="images/open-plan.jpg" alt="A large open-plan floor with desks" loading="lazy"><figcaption>Open-plan floor</figcaption></figure>
-      </div>
-    </div>
-  </section>
+      <section id="contact">
+        <div class="wrap contact">
+          <div class="info">
+            <img
+              class="photo find-us"
+              src="images/exterior.jpg"
+              alt="The front of the Royal Exchange Building on a sunny day"
+              loading="lazy"
+            />
+            <h2>Come and see the building.</h2>
+            <p>
+              Book a tour of the offices and lounge, or ask us about meeting
+              rooms and virtual office services. We'll get back to you within
+              one working day.
+            </p>
+            <dl>
+              <div>
+                <dt>Address</dt>
+                <dd>Royal Exchange Building, Panmure Street, Dundee DD1 1DU</dd>
+              </div>
+              <div>
+                <dt>Phone</dt>
+                <dd><a href="tel:01382722342">01382 722342</a></dd>
+              </div>
+            </dl>
+          </div>
+          <form id="form">
+            <div>
+              <label for="name">Full name</label
+              ><input id="name" required autocomplete="name" />
+            </div>
+            <div>
+              <label for="email">Email</label
+              ><input id="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="full">
+              <label for="topic">I'm interested in</label>
+              <select id="topic">
+                <option>A tour of the building</option>
+                <option>A serviced office</option>
+                <option>Coworking</option>
+                <option>A meeting room</option>
+                <option>Virtual office services</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="msg">Message</label
+              ><textarea
+                id="msg"
+                placeholder="Team size, move-in date, or anything else we should know"
+              ></textarea>
+            </div>
+            <div class="full">
+              <button class="btn" type="submit">Send message</button>
+            </div>
+            <p class="sent" id="sent" role="status">
+              Message sent. We'll be in touch within one working day.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
 
-  <section id="rooms" style="padding-top:0">
-    <div class="wrap rooms">
-      <div>
-        <h2>Find a room that fits.</h2>
-        <p>Tell us how many people are coming and we'll suggest a room. Tea, coffee and a large-screen TV come with every booking.</p>
-        <img class="photo rooms-photo" src="images/meeting-room-library.jpg" alt="A meeting room with a bookcase and a large-screen TV" loading="lazy">
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <img
+              class="foot-logo"
+              src="images/royal-exchange-logo-trimmed.png"
+              alt="The Royal Exchange Business Hub"
+              width="519"
+              height="223"
+              loading="lazy"
+            />
+            <p style="margin-top: 16px; max-width: 26em">
+              Where business belongs. Royal Exchange Building, Panmure Street,
+              Dundee DD1 1DU.
+            </p>
+          </div>
+          <ul>
+            <li><a href="#spaces">Offices</a></li>
+            <li><a href="#spaces">Coworking</a></li>
+            <li><a href="#rooms">Meeting rooms</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <p class="fine">
+          © 2026 The Royal Exchange Business Hub. Redesign concept.
+        </p>
       </div>
-      <div class="picker">
-        <label for="guests">How many people?</label>
-        <output id="count" for="guests">8</output>
-        <span class="unit">people</span>
-        <input type="range" id="guests" min="1" max="24" value="8">
-        <div class="scale"><span>1</span><span>24</span></div>
-        <div class="seats" id="seats" aria-hidden="true"></div>
-        <p class="room-name" id="roomName" aria-live="polite"></p>
-        <a class="btn" href="#contact" id="bookRoom">Book a meeting room</a>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <section id="community" class="tay">
-    <div class="wrap quote-wrap">
-      <div>
-        <h2 style="margin-bottom:24px">Who works here.</h2>
-        <p class="big">Solicitors next to software consultants, accountants down the hall from energy companies. The lounge and kitchen are where these neighbours meet.</p>
-      </div>
-      <ul class="tenants">
-        <li>Solicitors</li><li>Accountants</li><li>IT consultants</li><li>Therapists</li><li>Energy sector</li><li>Startups</li><li>Growing SMEs</li><li>Corporate teams</li>
-      </ul>
-    </div>
-    <div class="wrap">
-      <div class="gallery">
-        <img class="photo" src="images/breakout.jpg" alt="Members chatting in the breakout area" loading="lazy">
-        <img class="photo" src="images/business-lounge.jpg" alt="The business lounge with booth seating" loading="lazy">
-        <img class="photo" src="images/lounge-room.jpg" alt="A lounge room with sofas and a wall-mounted TV" loading="lazy">
-      </div>
-    </div>
-  </section>
+    <script>
+      const t = document.querySelector(".menu-toggle"),
+        m = document.getElementById("menu");
+      t.addEventListener("click", () => {
+        const o = m.classList.toggle("open");
+        t.setAttribute("aria-expanded", o);
+      });
+      m.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          m.classList.remove("open");
+          t.setAttribute("aria-expanded", false);
+        }),
+      );
 
-  <section id="contact">
-    <div class="wrap contact">
-      <div class="info">
-        <img class="photo find-us" src="images/exterior.jpg" alt="The front of the Royal Exchange Building on a sunny day" loading="lazy">
-        <h2>Come and see the building.</h2>
-        <p>Book a tour of the offices and lounge, or ask us about meeting rooms and virtual office services. We'll get back to you within one working day.</p>
-        <dl>
-          <div><dt>Address</dt><dd>Royal Exchange Building, Panmure Street, Dundee DD1 1DU</dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:01382722342">01382 722342</a></dd></div>
-        </dl>
-      </div>
-      <form id="form">
-        <div><label for="name">Full name</label><input id="name" required autocomplete="name"></div>
-        <div><label for="email">Email</label><input id="email" type="email" required autocomplete="email"></div>
-        <div class="full"><label for="topic">I'm interested in</label>
-          <select id="topic">
-            <option>A tour of the building</option>
-            <option>A serviced office</option>
-            <option>Coworking</option>
-            <option>A meeting room</option>
-            <option>Virtual office services</option>
-          </select></div>
-        <div class="full"><label for="msg">Message</label><textarea id="msg" placeholder="Team size, move-in date, or anything else we should know"></textarea></div>
-        <div class="full"><button class="btn" type="submit">Send message</button></div>
-        <p class="sent" id="sent" role="status">Message sent. We'll be in touch within one working day.</p>
-      </form>
-    </div>
-  </section>
-</main>
+      const r = document.getElementById("guests"),
+        c = document.getElementById("count"),
+        s = document.getElementById("seats"),
+        n = document.getElementById("roomName"),
+        topic = document.getElementById("topic");
+      for (let i = 0; i < 24; i++) {
+        const d = document.createElement("span");
+        d.className = "seat";
+        s.appendChild(d);
+      }
+      function upd() {
+        const v = +r.value;
+        c.textContent = v;
+        [...s.children].forEach((d, i) => d.classList.toggle("on", i < v));
+        n.textContent =
+          v <= 4
+            ? "A small room for up to 4 — ideal for interviews and one-to-ones."
+            : v <= 10
+              ? "A mid-size room for up to 10 — good for team and client meetings."
+              : "Our largest room, seating up to 24 — for workshops and training.";
+      }
+      r.addEventListener("input", upd);
+      upd();
+      document.getElementById("bookRoom").addEventListener("click", () => {
+        topic.value = "A meeting room";
+        document.getElementById("msg").value =
+          "Meeting room for " + r.value + " people.";
+      });
 
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div><b style="color:#fff;font-weight:600;font-size:1.05rem">The Royal Exchange Business Hub</b><p style="margin-top:6px;max-width:26em">Where business belongs. Royal Exchange Building, Panmure Street, Dundee DD1 1DU.</p></div>
-      <ul><li><a href="#spaces">Offices</a></li><li><a href="#spaces">Coworking</a></li><li><a href="#rooms">Meeting rooms</a></li><li><a href="#contact">Contact</a></li></ul>
-      <ul><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Blog</a></li></ul>
-    </div>
-    <p class="fine">© 2026 The Royal Exchange Business Hub. Redesign concept.</p>
-  </div>
-</footer>
-
-<script>
-  const t=document.querySelector('.menu-toggle'),m=document.getElementById('menu');
-  t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',o)});
-  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');t.setAttribute('aria-expanded',false)}));
-
-  const r=document.getElementById('guests'),c=document.getElementById('count'),s=document.getElementById('seats'),n=document.getElementById('roomName'),topic=document.getElementById('topic');
-  for(let i=0;i<24;i++){const d=document.createElement('span');d.className='seat';s.appendChild(d)}
-  function upd(){const v=+r.value;c.textContent=v;
-    [...s.children].forEach((d,i)=>d.classList.toggle('on',i<v));
-    n.textContent=v<=4?'A small room for up to 4 — ideal for interviews and one-to-ones.':v<=10?'A mid-size room for up to 10 — good for team and client meetings.':'Our largest room, seating up to 24 — for workshops and training.';}
-  r.addEventListener('input',upd);upd();
-  document.getElementById('bookRoom').addEventListener('click',()=>{topic.value='A meeting room';document.getElementById('msg').value='Meeting room for '+r.value+' people.'});
-
-  document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('sent').classList.add('show');e.target.querySelectorAll('input,textarea').forEach(i=>i.value='')});
-</script>
-</body>
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        document.getElementById("sent").classList.add("show");
+        e.target
+          .querySelectorAll("input,textarea")
+          .forEach((i) => (i.value = ""));
+      });
+    </script>
+  </body>
 </html>
